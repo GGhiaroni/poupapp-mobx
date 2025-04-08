@@ -1,11 +1,13 @@
 import { usuarioStore } from "./usuarioStore";
 
-const { createContext } = require("react");
+import { createContext } from "react";
 
 const StoreContext = createContext(null);
 
 export const StoreProvider = ({ children }) => {
-  <StoreContext.Provider value={{ usuarioStore }}>
-    {children}
-  </StoreContext.Provider>;
+  return (
+    <StoreContext.Provider value={{ usuarioStore }}>
+      {children}
+    </StoreContext.Provider>
+  );
 };
