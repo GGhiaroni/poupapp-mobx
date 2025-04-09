@@ -4,6 +4,7 @@ class UsuarioStore {
   nome = "";
   renda = 0;
   objetivoFinanceiro = "";
+  orcamentoDiario = 0;
 
   constructor() {
     makeObservable(this, {
@@ -18,6 +19,15 @@ class UsuarioStore {
     this.nome = nome;
     this.renda = renda;
     this.objetivoFinanceiro = objetivoFinanceiro;
+  }
+
+  calcularOrcamentoDiario() {
+    const diasDoMes = new Date(
+      new Date().getFullYear(),
+      newDate().getMonth() + 1,
+      0
+    ).getDate();
+    this.orcamentoDiario = Math.floor(this.renda / diasDoMes);
   }
 }
 
