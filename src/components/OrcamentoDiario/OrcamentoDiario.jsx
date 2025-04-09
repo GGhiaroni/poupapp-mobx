@@ -1,7 +1,9 @@
+import { observer } from "mobx-react";
+import { useStoreContext } from "src/mobx/StoreContext";
+import { Descricao } from "../Cartao";
 import Cartao from "../Cartao/Cartao";
 import CartaoCabecalho from "../Cartao/CartaoCabecalho/CartaoCabecalho";
 import CartaoCorpo from "../Cartao/CartaoCorpo/CartaoCorpo";
-import { Descricao } from "../Cartao";
 
 const formatador = new Intl.NumberFormat("pt-BR", {
   style: "currency",
@@ -9,16 +11,18 @@ const formatador = new Intl.NumberFormat("pt-BR", {
   minimumFractionDigits: 2,
 });
 
-const OrcamentoDiario = () => {
-  const orcamentoDiario = 100;
+const OrcamentoDiario = observer(() => {
+  const { usuarioStore } = useStoreContext();
+
+  const orcamentoDiario = usuarioStore.orcamentoDiario;
 
   return (
     <Cartao>
       <CartaoCabecalho>Orçamento diário disponível</CartaoCabecalho>
       <CartaoCorpo>
-        <Descricao>{orcamentoDiario}</Descricao>
+        <Descricao>{formatador.format(orcamentoDiario)}</Descricao>
       </CartaoCorpo>
     </Cartao>
   );
-};
+});
 export default OrcamentoDiario;

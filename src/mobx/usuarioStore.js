@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
 
 class UsuarioStore {
   nome = "";
@@ -7,24 +7,20 @@ class UsuarioStore {
   orcamentoDiario = 0;
 
   constructor() {
-    makeObservable(this, {
-      nome: observable,
-      renda: observable,
-      objetivoFinanceiro: observable,
-      definirDadosUsuario: action,
-    });
+    makeAutoObservable(this);
   }
 
   definirDadosUsuario({ nome, renda, objetivoFinanceiro }) {
     this.nome = nome;
-    this.renda = renda;
+    this.renda = Number(renda.replace("R$", ""));
     this.objetivoFinanceiro = objetivoFinanceiro;
+    this.calcularOrcamentoDiario();
   }
 
   calcularOrcamentoDiario() {
     const diasDoMes = new Date(
       new Date().getFullYear(),
-      newDate().getMonth() + 1,
+      new Date().getMonth() + 1,
       0
     ).getDate();
     this.orcamentoDiario = Math.floor(this.renda / diasDoMes);
