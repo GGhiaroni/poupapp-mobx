@@ -1,4 +1,5 @@
 import logo from "@assets/images/logo.png";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Sidebar = styled.aside`
@@ -24,7 +25,9 @@ export const Rodape = styled.footer`
 const BarraLateral = () => {
   return (
     <Sidebar>
-      <Imagem src={logo} alt="Logotipo da poupeapp" />
+      <Link to="/">
+        <Imagem src={logo} alt="Logotipo da poupeapp" />
+      </Link>
       <Rodape>
         Desenvolvido por Gabriel Ghiaroni. Projeto fictício sem fins comerciais.
       </Rodape>
