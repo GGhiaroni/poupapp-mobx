@@ -1,22 +1,25 @@
-import { useState } from "react";
+import ilustracao from "@assets/images/ilustracao-cadastro.png";
+import Botao from "@components/Botao";
+import { RadioGroup, RadioInput } from "@components/BotaoRadio";
+import CampoTexto from "@components/CampoTexto";
+import Fieldset from "@components/Fieldset";
+import Form from "@components/Form/Form";
+import Label from "@components/Label";
+import { observer } from "mobx-react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { StoreContext } from "src/mobx/StoreContext.jsx";
 import {
-  Section,
   Container,
-  Title,
   Description,
   Illustration,
+  Section,
   SectionWrapper,
+  Title,
 } from "./style.js";
-import CampoTexto from "@components/CampoTexto";
-import Botao from "@components/Botao";
-import Label from "@components/Label";
-import Fieldset from "@components/Fieldset";
-import { RadioGroup, RadioInput } from "@components/BotaoRadio";
-import Form from "@components/Form/Form";
-import ilustracao from "@assets/images/ilustracao-cadastro.png";
-import { useNavigate } from "react-router-dom";
 
-const Cadastro = () => {
+const Cadastro = observer(() => {
+  const { usuarioStore } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const [nome, setNome] = useState("");
@@ -25,6 +28,7 @@ const Cadastro = () => {
 
   const aoSubmeterFormulario = (evento) => {
     evento.preventDefault();
+    usuarioStore.definirDadosUsuario({ nome, renda, objetivoFinanceiro });
     navigate("/home");
   };
 
@@ -107,6 +111,6 @@ const Cadastro = () => {
       </SectionWrapper>
     </Section>
   );
-};
+});
 
 export default Cadastro;
