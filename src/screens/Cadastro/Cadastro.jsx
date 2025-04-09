@@ -6,9 +6,9 @@ import Fieldset from "@components/Fieldset";
 import Form from "@components/Form/Form";
 import Label from "@components/Label";
 import { observer } from "mobx-react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StoreContext } from "src/mobx/StoreContext.jsx";
+import { useStoreContext } from "src/mobx/StoreContext.jsx";
 import {
   Container,
   Description,
@@ -19,7 +19,7 @@ import {
 } from "./style.js";
 
 const Cadastro = observer(() => {
-  const { usuarioStore } = useContext(StoreContext);
+  const { usuarioStore } = useStoreContext();
   const navigate = useNavigate();
 
   const [nome, setNome] = useState("");
