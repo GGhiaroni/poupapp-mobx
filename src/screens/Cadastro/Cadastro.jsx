@@ -18,6 +18,8 @@ import {
   Title,
 } from "./style.js";
 
+import { formatarValorMonetario } from "src/utils/formatarRenda.js";
+
 const Cadastro = observer(() => {
   const { usuarioStore } = useStoreContext();
   const navigate = useNavigate();
@@ -58,7 +60,9 @@ const Cadastro = observer(() => {
                 type="text"
                 name="renda"
                 value={renda}
-                onChange={(e) => setRenda(e.target.value)}
+                onChange={(e) =>
+                  setRenda(formatarValorMonetario(e.target.value))
+                }
               />
             </Fieldset>
             <Fieldset>

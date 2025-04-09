@@ -12,7 +12,10 @@ class UsuarioStore {
 
   definirDadosUsuario({ nome, renda, objetivoFinanceiro }) {
     this.nome = nome;
-    this.renda = Number(renda.replace("R$", ""));
+
+    const rendaConvertida = Number(renda.replace(/\D/g, "")) / 100;
+
+    this.renda = rendaConvertida;
     this.objetivoFinanceiro = objetivoFinanceiro;
     this.calcularOrcamentoDiario();
   }

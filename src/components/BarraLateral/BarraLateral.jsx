@@ -28,9 +28,7 @@ const BarraLateral = () => {
       <Link to="/">
         <Imagem src={logo} alt="Logotipo da poupeapp" />
       </Link>
-      <Rodape>
-        Desenvolvido por Gabriel Ghiaroni. Projeto fictício sem fins comerciais.
-      </Rodape>
+      <Rodape>Desenvolvido por Gabriel Ghiaroni.</Rodape>
     </Sidebar>
   );
 };
