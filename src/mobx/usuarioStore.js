@@ -39,7 +39,7 @@ class UsuarioStore {
       return 0;
     }
 
-    const meta = this.renda * meta[this.objetivoFinanceiro];
+    const meta = this.renda * this.metas[this.objetivoFinanceiro];
 
     if (this.objetivoFinanceiro === "controlar-gastos") {
       return (((meta - this.orcamentoDiario) / meta) * 100).toFixed(2);
