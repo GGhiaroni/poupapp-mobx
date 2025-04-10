@@ -1,5 +1,5 @@
 import CampoTexto from "@components/CampoTexto";
-import { SearchIcon } from "@components/Icones";
+import { CiSearch } from "react-icons/ci";
 import styled from "styled-components";
 
 export const StyledLabel = styled.label`
@@ -11,13 +11,13 @@ export const StyledLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-s);
+  gap: var(--gap-xs);
 `;
 
 const BarraPesquisa = () => {
   return (
     <StyledLabel htmlFor="search">
-      <SearchIcon />
+      <CiSearch size={20} color="#8d8f98" />
       <CampoTexto
         name="search"
         type="text"

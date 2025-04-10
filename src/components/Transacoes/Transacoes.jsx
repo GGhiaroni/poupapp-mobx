@@ -1,9 +1,9 @@
-import { useState } from "react";
-import MoneyIcon from "@components/Icones/MoneyIcon/MoneyIcon";
-import { Container, ListaMovimentacoes } from "@components/Contas/Contas";
-import Transacao from "./Transacao/Transacao";
-import { Cartao, CartaoCabecalho } from "@components/Cartao";
 import Botao from "@components/Botao";
+import { Cartao, CartaoCabecalho } from "@components/Cartao";
+import { Container, ListaMovimentacoes } from "@components/Contas/Contas";
+import { useState } from "react";
+import { BsCashCoin } from "react-icons/bs";
+import Transacao from "./Transacao/Transacao";
 import TransacaoModal from "./TransacaoModal";
 
 const Transacoes = ({ transacoes }) => {
@@ -27,7 +27,7 @@ const Transacoes = ({ transacoes }) => {
           ))}
         </ListaMovimentacoes>
         <Botao $variante="neutro" onClick={() => handleOpenModal()}>
-          <MoneyIcon />
+          <BsCashCoin />
           Adicionar transação
         </Botao>
         {isModalOpen && (

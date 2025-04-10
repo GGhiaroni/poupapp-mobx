@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Conta from "./Conta/Conta";
-import styled from "styled-components";
+import Botao from "@components/Botao";
 import CampoTexto from "@components/CampoTexto";
 import { Cartao, CartaoCabecalho } from "@components/Cartao";
-import Botao from "@components/Botao";
-import Modal from "@components/Modal";
+import CartaoCorpo from "@components/Cartao/CartaoCorpo/CartaoCorpo";
+import Fieldset from "@components/Fieldset";
 import Form from "@components/Form";
 import Label from "@components/Label";
-import Fieldset from "@components/Fieldset";
-import { WalletIcon } from "@components/Icones";
-import CartaoCorpo from "@components/Cartao/CartaoCorpo/CartaoCorpo";
+import Modal from "@components/Modal";
+import { useState } from "react";
+import { BsBank } from "react-icons/bs";
+import styled from "styled-components";
+import Conta from "./Conta/Conta";
 
 export const Container = styled(CartaoCorpo)`
   padding: var(--padding-l) var(--padding-m);
@@ -65,7 +65,7 @@ const Contas = ({ contas }) => {
           ))}
         </ListaMovimentacoes>
         <Botao $variante="neutro" onClick={() => handleOpenModal()}>
-          <WalletIcon />
+          <BsBank />
           Adicionar conta
         </Botao>
         {isModalOpen && (
@@ -74,7 +74,7 @@ const Contas = ({ contas }) => {
             estaAberta={isModalOpen}
             aoClicar={() => aoAdicionarConta()}
             titulo="Adicionar conta bancária"
-            icon={<WalletIcon />}
+            icon={<BsBank />}
           >
             <Form>
               <Fieldset>

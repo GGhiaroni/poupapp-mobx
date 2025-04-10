@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import CampoTexto from "@components/CampoTexto";
 import Fieldset from "@components/Fieldset";
 import Form from "@components/Form";
-import { MoneyIcon } from "@components/Icones";
 import Label from "@components/Label";
 import Modal from "@components/Modal";
 import { SelectGroup, SelectOption } from "@components/Select";
+import { useState } from "react";
+import { BsCashCoin } from "react-icons/bs";
 
 const TransacaoModal = ({ isOpen, onCloseModal }) => {
   const [novaTransacao, setNovaTransacao] = useState({
@@ -25,7 +25,7 @@ const TransacaoModal = ({ isOpen, onCloseModal }) => {
       aoFechar={() => onCloseModal()}
       titulo="Adicionar transação"
       estaAberta={isOpen}
-      icon={<MoneyIcon />}
+      icon={<BsCashCoin />}
       aoClicar={() => aoSubmeterFormModal()}
     >
       <Form>

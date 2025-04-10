@@ -1,5 +1,5 @@
+import { BsBank } from "react-icons/bs";
 import styled from "styled-components";
-import BankIcon from "@components/Icones/BankIcon/BankIcon";
 
 export const ItemConta = styled.li`
   display: flex;
@@ -42,7 +42,7 @@ const Conta = ({ conta }) => {
   return (
     <ItemConta>
       <TituloConta>
-        <BankIcon />
+        <BsBank />
         <h3>{conta.banco}</h3>
       </TituloConta>
       <SaldoConta>
