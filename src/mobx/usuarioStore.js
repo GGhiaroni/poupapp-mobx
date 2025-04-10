@@ -5,6 +5,11 @@ class UsuarioStore {
   renda = 0;
   objetivoFinanceiro = "";
   orcamentoDiario = 0;
+  metas = {
+    economizar: 0.2,
+    investir: 0.15,
+    "controlar-gastos": 0.8,
+  };
 
   constructor() {
     makeAutoObservable(this);
