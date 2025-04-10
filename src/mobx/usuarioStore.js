@@ -33,6 +33,19 @@ class UsuarioStore {
     ).getDate();
     this.orcamentoDiario = Math.floor(this.renda / diasDoMes);
   }
+
+  get progressoMeta() {
+    if (!this.metas[this.objetivoFinanceiro]) {
+      return 0;
+    }
+
+    const meta = this.renda * meta[this.objetivoFinanceiro];
+
+    if (this.objetivoFinanceiro === "controlar-gastos") {
+      return (((meta - this.orcamentoDiario) / meta) * 100).toFixed(2);
+    }
+    return ((this.orcamentoDiario / meta) * 100).toFixed(2);
+  }
 }
 
 export const usuarioStore = new UsuarioStore();
