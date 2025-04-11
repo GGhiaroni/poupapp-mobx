@@ -25,29 +25,21 @@ export const TituloMetaFinanceira = styled.p`
 const MetaFinanceira = observer(() => {
   const { usuarioStore } = useStoreContext();
 
-  const objetivo = usuarioStore.objetivoFinanceiro;
-  const metaPercentual = usuarioStore.metas[objetivo] ?? 0;
-  const metaFormatadaEmPorcentagem = (metaPercentual * 100).toFixed(0);
-
   return (
     <Cartao>
       <CartaoCabecalho>Progresso da meta financeira</CartaoCabecalho>
       <CartaoCorpo>
         <Descricao>
           <TituloMetaFinanceira>
-            {objetivo === "economizar" ? (
+            {usuarioStore.objetivoFinanceiroSelecionado === "Economizar" ? (
               <LiaPiggyBankSolid size={30} />
-            ) : objetivo === "investir" ? (
+            ) : usuarioStore.objetivoFinanceiroSelecionado === "Investir" ? (
               <FaMoneyBillTrendUp size={25} />
             ) : (
               <GiTakeMyMoney size={30} />
             )}
-            {objetivo
-              ? `Meta de ${
-                  objetivo === "controlar-gastos"
-                    ? "controle de gastos"
-                    : objetivo
-                }: ${metaFormatadaEmPorcentagem}%`
+            {usuarioStore.objetivoFinanceiroSelecionado
+              ? `Meta de ${usuarioStore.objetivoFinanceiroSelecionado}`
               : "Nenhuma meta selecionada"}
           </TituloMetaFinanceira>
           <BarraProgresso />
