@@ -39,6 +39,14 @@ class UsuarioStore {
     this.orcamentoDiario = Math.floor(this.renda / diasDoMes);
   }
 
+  get objetivoFinanceiroSelecionado() {
+    if (!this.objetivosTipos[this.objetivoFinanceiro]) {
+      return null;
+    }
+
+    return this.objetivosTipos[this.objetivoFinanceiro];
+  }
+
   get progressoMeta() {
     if (!this.metas[this.objetivoFinanceiro]) {
       return 0;
