@@ -10,6 +10,11 @@ class UsuarioStore {
     investir: 0.15,
     "controlar-gastos": 0.8,
   };
+  objetivosTipos = {
+    economizar: "Economizar",
+    investir: "Investir",
+    "controlar-gastos": "Controlar gastos",
+  };
 
   constructor() {
     makeAutoObservable(this);
