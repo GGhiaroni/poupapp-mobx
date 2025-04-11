@@ -1,4 +1,4 @@
-import { autorun, makeAutoObservable } from "mobx";
+import { autorun, makeAutoObservable, reaction } from "mobx";
 
 class UsuarioStore {
   nome = "";
@@ -18,6 +18,7 @@ class UsuarioStore {
 
   constructor() {
     makeAutoObservable(this);
+
     this.#carregarDoLocalStorage();
 
     autorun(() => {
@@ -30,6 +31,11 @@ class UsuarioStore {
 
       localStorage.setItem("usuario", JSON.stringify(userState));
     });
+
+    reaction(
+      () => this.orcamentoDiario,
+      () => console.log("Orçamento diário atualizado:")
+    );
   }
 
   definirDadosUsuario({ nome, renda, objetivoFinanceiro }) {
