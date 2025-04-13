@@ -1,3 +1,4 @@
+import { contasStore } from "./contasStore";
 import { transacoesStore } from "./transacoesStore";
 import { usuarioStore } from "./usuarioStore";
 

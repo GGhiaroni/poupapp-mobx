@@ -8,7 +8,7 @@ class ContasStore {
     makeAutoObservable(this);
   }
 
-  adicionarContar(conta) {
+  adicionarConta(conta) {
     this.contas.push({ id: uuidv4(), ...conta });
   }
 }

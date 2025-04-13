@@ -6,8 +6,10 @@ import Fieldset from "@components/Fieldset";
 import Form from "@components/Form";
 import Label from "@components/Label";
 import Modal from "@components/Modal";
+import { observer } from "mobx-react";
 import { useState } from "react";
 import { BsBank } from "react-icons/bs";
+import { useStoreContext } from "src/mobx/StoreContext";
 import styled from "styled-components";
 import Conta from "./Conta/Conta";
 
@@ -36,7 +38,9 @@ export const ListaMovimentacoes = styled.ul`
   -ms-overflow-style: none;
 `;
 
-const Contas = ({ contas }) => {
+const Contas = observer(() => {
+  const { contasStore, usuarioStore } = useStoreContext();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [novaConta, setNovaConta] = useState({
     banco: "",
@@ -52,6 +56,8 @@ const Contas = ({ contas }) => {
   };
 
   const aoAdicionarConta = () => {
+    contasStore.adicionarConta(novaConta);
+    usuarioStore.atualizarOrcamentoDiarioComSaldoNovaConta(novaConta.saldo);
     handleCloseModal();
   };
 
@@ -60,7 +66,7 @@ const Contas = ({ contas }) => {
       <CartaoCabecalho>Minhas contas</CartaoCabecalho>
       <Container>
         <ListaMovimentacoes>
-          {contas.map((conta) => (
+          {contasStore.contas.map((conta) => (
             <Conta key={conta.id} conta={conta} />
           ))}
         </ListaMovimentacoes>
@@ -107,5 +113,5 @@ const Contas = ({ contas }) => {
       </Container>
     </Cartao>
   );
-};
+});
 export default Contas;
