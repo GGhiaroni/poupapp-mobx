@@ -1,12 +1,16 @@
 import Botao from "@components/Botao";
 import { Cartao, CartaoCabecalho } from "@components/Cartao";
 import { Container, ListaMovimentacoes } from "@components/Contas/Contas";
+import { observer } from "mobx-react";
 import { useState } from "react";
 import { BsCashCoin } from "react-icons/bs";
+import { useStoreContext } from "src/mobx/StoreContext";
 import Transacao from "./Transacao/Transacao";
 import TransacaoModal from "./TransacaoModal";
 
-const Transacoes = ({ transacoes }) => {
+const Transacoes = observer(() => {
+  const { transacoesStore } = useStoreContext();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -22,7 +26,7 @@ const Transacoes = ({ transacoes }) => {
       <CartaoCabecalho>Movimentação financeira</CartaoCabecalho>
       <Container>
         <ListaMovimentacoes>
-          {transacoes.map((transacao) => (
+          {transacoesStore.map((transacao) => (
             <Transacao key={transacao.id} transacao={transacao} />
           ))}
         </ListaMovimentacoes>
@@ -39,5 +43,5 @@ const Transacoes = ({ transacoes }) => {
       </Container>
     </Cartao>
   );
-};
+});
 export default Transacoes;
