@@ -7,7 +7,9 @@ export const StoreContext = createContext(null);
 
 export const StoreProvider = ({ children }) => {
   return (
-    <StoreContext.Provider value={{ usuarioStore, transacoesStore }}>
+    <StoreContext.Provider
+      value={{ usuarioStore, transacoesStore, contasStore }}
+    >
       {children}
     </StoreContext.Provider>
   );
