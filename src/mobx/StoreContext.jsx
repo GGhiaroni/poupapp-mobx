@@ -1,3 +1,4 @@
+import { transacoesStore } from "./transacoesStore";
 import { usuarioStore } from "./usuarioStore";
 
 import { createContext, useContext } from "react";
@@ -6,7 +7,7 @@ export const StoreContext = createContext(null);
 
 export const StoreProvider = ({ children }) => {
   return (
-    <StoreContext.Provider value={{ usuarioStore }}>
+    <StoreContext.Provider value={{ usuarioStore, transacoesStore }}>
       {children}
     </StoreContext.Provider>
   );
