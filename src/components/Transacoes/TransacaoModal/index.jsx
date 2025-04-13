@@ -10,7 +10,7 @@ import { BsCashCoin } from "react-icons/bs";
 import { useStoreContext } from "src/mobx/StoreContext";
 
 const TransacaoModal = observer(({ isOpen, onCloseModal }) => {
-  const { transacoesStore } = useStoreContext();
+  const { transacoesStore, usuarioStore } = useStoreContext();
 
   const [novaTransacao, setNovaTransacao] = useState({
     nome: "",
@@ -22,6 +22,7 @@ const TransacaoModal = observer(({ isOpen, onCloseModal }) => {
 
   const aoSubmeterFormModal = () => {
     transacoesStore.adicionarTransacao(novaTransacao);
+    usuarioStore.atualizarOrcamentoDiario(novaTransacao);
     onCloseModal();
   };
 

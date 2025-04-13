@@ -57,6 +57,17 @@ class UsuarioStore {
     this.orcamentoDiario = Math.floor(this.renda / diasDoMes);
   }
 
+  atualizarOrcamentoDiario(transacao) {
+    const valor = Math.abs(transacao.valor);
+
+    if (transacao.tipo !== "receita") {
+      this.orcamentoDiario -= valor;
+      return;
+    }
+
+    this.orcamentoDiario += valor;
+  }
+
   get objetivoFinanceiroSelecionado() {
     if (!this.objetivosTipos[this.objetivoFinanceiro]) {
       return null;
