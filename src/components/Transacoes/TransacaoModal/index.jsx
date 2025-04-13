@@ -4,10 +4,14 @@ import Form from "@components/Form";
 import Label from "@components/Label";
 import Modal from "@components/Modal";
 import { SelectGroup, SelectOption } from "@components/Select";
+import { observer } from "mobx-react";
 import { useState } from "react";
 import { BsCashCoin } from "react-icons/bs";
+import { useStoreContext } from "src/mobx/StoreContext";
 
-const TransacaoModal = ({ isOpen, onCloseModal }) => {
+const TransacaoModal = observer(({ isOpen, onCloseModal }) => {
+  const { transacoesStore } = useStoreContext();
+
   const [novaTransacao, setNovaTransacao] = useState({
     nome: "",
     valor: 0,
@@ -17,6 +21,7 @@ const TransacaoModal = ({ isOpen, onCloseModal }) => {
   });
 
   const aoSubmeterFormModal = () => {
+    transacoesStore.adicionarTransacao(novaTransacao);
     onCloseModal();
   };
 
@@ -106,6 +111,6 @@ const TransacaoModal = ({ isOpen, onCloseModal }) => {
       </Form>
     </Modal>
   );
-};
+});
 
 export default TransacaoModal;

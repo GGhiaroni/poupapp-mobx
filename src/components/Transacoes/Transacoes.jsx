@@ -26,7 +26,7 @@ const Transacoes = observer(() => {
       <CartaoCabecalho>Movimentação financeira</CartaoCabecalho>
       <Container>
         <ListaMovimentacoes>
-          {transacoesStore.map((transacao) => (
+          {transacoesStore.transacoes.map((transacao) => (
             <Transacao key={transacao.id} transacao={transacao} />
           ))}
         </ListaMovimentacoes>
