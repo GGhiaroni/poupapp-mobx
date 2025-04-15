@@ -1,64 +1,73 @@
-![PoupApp](thumb.png)
+# 💸 PoupApp
 
-# 💰 PoupApp
+**PoupApp** é uma aplicação web interativa que auxilia usuários no acompanhamento de suas metas financeiras mensais, permitindo definir objetivos como **economizar**, **investir** ou **controlar gastos**, tudo de forma visual, intuitiva e reativa.
 
-O PoupApp é uma plataforma de gerenciamento financeiro voltada para ajudar usuários a organizar suas finanças. Focado na simplicidade, o PoupApp permite que os usuários acompanhem seus gastos, definam metas financeiras e visualizem seu progresso através de gráficos dinâmicos. 
+Acesse o projeto em: https://poupapp-mobx.vercel.app/
 
-Com funcionalidades que incentivam o controle de despesas e a organização do orçamento diário, o PoupApp se torna o parceiro ideal para quem busca saúde financeira e realização de objetivos pessoais.
+---
 
-<p align="center">
-  <img src="./poupapp-home.png" alt="Página Inicial" width="30%" style="vertical-align: top; margin-right: 20px;" />
-</p>
+## 🚀 Tecnologias Utilizadas
 
-## 🔨 Funcionalidades do projeto
+| Tecnologia | Descrição |
+|------------|-----------|
+| [React](https://reactjs.org/) | Biblioteca JavaScript para construção de interfaces |
+| [MobX](https://mobx.js.org/) | Biblioteca de gerenciamento de estado reativo |
+| [mobx-react](https://mobx.js.org/react-integration.html) | Integração oficial do MobX com o React |
+| [Styled-components](https://styled-components.com/) | CSS-in-JS com estilos dinâmicos |
+| [React Icons](https://react-icons.github.io/react-icons/) | Biblioteca de ícones populares para React |
+| [Chart.js + React Chart.js 2](https://www.chartjs.org/) | Criação de gráficos dinâmicos e visuais |
+| [React Router DOM](https://reactrouter.com/) | Navegação entre páginas de forma declarativa |
+| [uuid](https://www.npmjs.com/package/uuid) | Geração de identificadores únicos |
 
-O PoupApp oferece as seguintes funcionalidades:
+---
 
-- Acompanhar o orçamento diário e manter o controle das suas despesas.
-- Definir uma meta financeira e visualizar o progresso em direção ao objetivo.
-- Realizar transações de maneira prática, adicionando despesas e receitas.
-- Adicionar contas e gerenciar seus saldos.
-- Analisar seus gastos por meio de gráficos dinâmicos, categorizando as despesas para melhor entendimento.
+## 🧠 Gerenciamento de Estado com MobX
 
-## ✔️ Técnicas e tecnologias utilizadas
+O MobX foi escolhido por sua **abordagem simples, reativa e declarativa** para lidar com o estado da aplicação.
 
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
+### ✅ Benefícios do uso do MobX no projeto:
 
-- `React.js` - Biblioteca para construção de interfaces dinâmicas.
-- `Vite.js` - Ferramenta de construção rápida para desenvolvimento com JavaScript moderno.
-- `Styled-components` - Para estilização de componentes com CSS-in-JS.
-- `MobX` - Gerenciamento de estado de forma reativa.
-- `React Router Dom` - Para navegação entre páginas da aplicação.
-- `Figma` - Para prototipagem e design visual do projeto.
+- **Reatividade automática**: componentes React se atualizam ao detectar mudanças no estado observado.
+- **Stores organizadas**: toda a lógica de negócio e dados ficam centralizados em stores específicas.
+- **Menos boilerplate** comparado a outros gerenciadores como Redux.
 
-E outras dependências e ferramentas auxiliares.
+## ✨ Funcionalidades
 
-## 🛠️ Abrir e rodar o projeto
+- 🎯 **Definição de objetivos financeiros**:
+  - Economizar
+  - Investir
+  - Controlar gastos
 
-Para rodar o projeto em sua máquina local, siga estes passos:
+- 📊 **Acompanhamento de progresso**:
+  - Cálculo automático do progresso com base na renda mensal e no objetivo escolhido
+  - Exibição de barra de progresso visual e percentual
 
-1. Baixe o repositório do projeto para o seu computador.
+- 📅 **Orçamento diário calculado automaticamente**:
+  - Baseado na renda mensal e nos dias do mês atual
 
-2. Navegue até a pasta do projeto, extraia os arquivos e abra no seu editor de código favorito. 
+- 📈 **Visualização gráfica**:
+  - Utilização de gráficos com Chart.js e React Chart.js 2
+  - Representação visual clara da evolução das metas
 
-3. Instale as dependências executando:
+- 💅 **Interface moderna e responsiva**:
+  - Construída com styled-components para garantir visual limpo e adaptado a diferentes dispositivos
 
-    ```bash
-    npm install
-    ```
+- 🔄 **Navegação entre etapas fluída**:
+  - Com React Router DOM, o usuário pode navegar entre telas de forma rápida e intuitiva
 
-4. Para iniciar o servidor de desenvolvimento, utilize o comando:
+- 🧠 **Gerenciamento de estado com MobX**:
+  - Toda a lógica de dados e reatividade do app é centralizada em uma Store usando `makeAutoObservable`
+  - Os componentes são automaticamente reativos às mudanças de estado, reduzindo o boilerplate e aumentando a legibilidade
 
-    ```bash
-    npm run dev
-    ```
+## 📸 Prévia com Imagens
 
-5. O projeto estará disponível em http://localhost:5173.
+<img width="890" alt="Captura de Tela 2025-04-15 às 11 57 33" src="https://github.com/user-attachments/assets/b50872b7-4f2b-4246-8c13-0660ba40caf9" />
 
-## 📚 Mais informações do curso
 
-Gostou do projeto e quer conhecer mais?
+<img width="890" alt="Captura de Tela 2025-04-15 às 11 56 35" src="https://github.com/user-attachments/assets/de1b4e51-54b0-4631-a8e7-7a60864a829e" />
 
-O design e protótipo deste projeto podem ser encontrados [aqui](https://www.figma.com/community/file/1425141851641585452). Este projeto é fictício e sem fins lucrativos. 
+<img width="890" alt="Captura de Tela 2025-04-15 às 11 56 58" src="https://github.com/user-attachments/assets/c36943ae-5511-4f70-96d4-1a93880ab2e9" />
 
-Aproveite o desenvolvimento e aprimoramento do PoupApp!
+---
+
+Acesse o projeto em: https://poupapp-mobx.vercel.app/
